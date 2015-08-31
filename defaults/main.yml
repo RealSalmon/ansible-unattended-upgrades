@@ -1,0 +1,12 @@
+---
+unattended_upgrades_origins: [security, updates]
+unattended_upgrades_autofix_interrupted: true
+unattended_upgrades_remove_unused: true
+unattended_upgrades_auto_reboot: false
+unattended_upgrades_reboot_time: "02:00"
+
+# Schedule
+unattended_upgrades_update_package_lists: 1
+unattended_upgrades_download_packages: 1
+unattended_upgrades_autoclean_interval: 7
+

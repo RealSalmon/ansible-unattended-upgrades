@@ -1,0 +1,22 @@
+---
+- name: ensure unattended-upgrades package is installed
+  become: yes
+  become_method: sudo
+  apt: name=unattended-upgrades state=present
+
+- name: setup unattended-upgrades configuration file
+  become: yes
+  become_method: sudo
+  notify: restart unattended-upgrades
+  template: src=50unattended-upgrades dest=/etc/apt/apt.conf.d/50unattended-upgrades
+
+- name: setup unattended-upgrades schedule
+  become: yes
+  become_method: sudo
+  notify: restart unattended-upgrades
+  template: src=10periodic dest=/etc/apt/apt.conf.d/10periodic
+
+- name: ensure unattended-upgrades service is started and enabled
+  become: yes
+  become_method: sudo
+  service: name=unattended-upgrades enabled=true state=started

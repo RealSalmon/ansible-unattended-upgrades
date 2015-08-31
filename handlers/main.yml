@@ -1,0 +1,5 @@
+---
+- name: restart unattended-upgrades
+  become: yes
+  become_method: sudo
+  service: name=unattended-upgrades state=restarted
