@@ -1,7 +1,7 @@
 // Automatically upgrade packages from these (origin:archive) pairs
 Unattended-Upgrade::Allowed-Origins {
   {% for origin in unattended_upgrades_origins %}
-	"${distro_id}:${distro_codename}-{{ origin }}";
+	"{{ origin }}";
   {% endfor %}
 };
 
