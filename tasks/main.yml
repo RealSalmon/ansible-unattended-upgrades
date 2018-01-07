@@ -2,7 +2,7 @@
 - name: ensure unattended-upgrades package is installed
   become: yes
   become_method: sudo
-  apt: name=unattended-upgrades state=present
+  apt: name=unattended-upgrades state=present update_cache=true cache_valid_time=3600
 
 - name: setup unattended-upgrades configuration file
   become: yes
